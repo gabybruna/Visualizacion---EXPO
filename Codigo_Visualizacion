@@ -1,0 +1,245 @@
+Table research;
+PFont fontgrupos;
+PFont fonttitulo;
+PFont fontfuente;
+PFont fontinfo;
+float spin=0;
+
+String Titulo="Distribución de Grupos de Investigación a Nivel País";
+String Fuente="Fuente: Colciencias - Plataforma ScienTI - Colombia. Enero 2014";
+String Info="*Información de Convocatoria 640-2013 para la investigación, desarrollo tecnológico y innovación - Ocyt.org.com";
+
+void setup() {
+  size(1030, 860, P3D);
+  background (0);
+  research=loadTable("research.csv", "header");
+  fontgrupos=loadFont("Exo-Bold-18.vlw");
+  smooth();
+  fonttitulo=loadFont("Exo-Thin-30.vlw");
+   smooth();
+  fontfuente=loadFont("Exo-Bold-12.vlw");
+   smooth();
+   fontinfo=loadFont("GillSans-12.vlw");
+   smooth();
+   
+}
+
+void draw() {
+  background (246,252,252);
+  research.trim();
+    textFont(fonttitulo);
+    fill (70);
+    text (Titulo, 180,785);
+    noFill();
+    stroke(140);
+    rect (160,745,710,60);
+  
+    textFont(fontfuente);
+    fill (80);
+    text (Fuente, 530,60);
+    noFill();
+    
+    textFont(fontinfo);
+    fill (80);
+    text (Info, 306,825);
+    noFill();
+    
+  
+  textFont(fontgrupos);
+  //text((mouseX+","+mouseY), mouseX, mouseY);
+  textFont(fontgrupos);
+  fill (80);
+
+  
+
+
+  //stroke(130, 200);
+  //fill(mouseX, 100, 160);
+
+
+ noStroke(); //GRUPO 1 - SOCIALES
+  fill (30, 50, 120);
+  //ellipse(210, 180, research.getInt(0, 1)/10, research.getInt(0, 1)/10);
+  text(research.getString(0, 0), 175, 250 + (research.getInt(0, 1)/10)/2);
+  
+  pushMatrix();
+  sphereDetail(mouseX/30);
+  translate(250, 200, 90);
+  fill (255, 119, 105);
+  stroke(230,232,229);
+  sphere(82);
+  popMatrix();
+
+
+ noStroke(); //GRUPO 2 - SALUD
+  fill (30, 50, 120);
+  //ellipse(410, 180, research.getInt(1, 1)/10, research.getInt(1, 1)/10);
+  text(research.getString(1, 0), 390, 290 + (research.getInt(1, 1)/10)/2);
+
+   pushMatrix();
+  translate(415, 195, 20);
+  fill (30, 200, 180);
+  stroke(230,232,229);
+  sphere(63);
+  popMatrix();
+  
+  noStroke(); //GRUPO 3 - BASICAS
+  //ellipse(580, 180, research.getInt(2, 1)/10, research.getInt(2, 1)/10);
+  fill (30, 50, 120);
+  text(research.getString(2, 0), 553, 300 + (research.getInt(2, 1)/10)/2);
+
+   pushMatrix();
+  translate(580, 197, 20);
+   fill (149, 106, 245);
+  stroke(230,232,229);
+  sphere(56);
+  popMatrix();
+  
+  noStroke(); //GRUPO 4 - AMBIENTE
+  //ellipse(720, 180, research.getInt(3, 1)/10, research.getInt(3, 1)/10);
+  fill (30, 50, 120);
+  text(research.getString(3, 0), 691, 310 + (research.getInt(3, 1)/10)/2);
+
+    pushMatrix();
+  translate(723, 205, 20);
+   fill (154, 245, 106);
+  stroke(230,232,229);
+  sphere(42);
+  popMatrix();
+  
+  
+  noStroke(); //GRUPO 5 - INDUSTRIA
+  //ellipse(850, 180, research.getInt(4, 1)/10, research.getInt(4, 1)/10);
+  fill (30, 50, 120);
+  text(research.getString(4, 0), 829, 310 + (research.getInt(4, 1)/10)/2);
+
+    pushMatrix();
+  translate(847, 212, 20);
+  fill (255, 228, 72);
+  stroke(230,232,229);
+  sphere(34);
+  popMatrix();
+  
+  
+  // SEGUNDA LINEA DE GRUPOS
+
+  noStroke(); //GRUPO 6 - ELECTRONICA
+  //ellipse(210, 400, research.getInt(5, 1)/10, research.getInt(5, 1)/10);
+  fill (30, 50, 120);
+  text(research.getString(5, 0), 168, 490 + (research.getInt(5, 1)/10)/2);
+
+ pushMatrix();
+  translate(225, 410, 20);
+  fill (155, 150, 150);
+  stroke(230,232,229);
+  sphere(40);
+  popMatrix();
+  
+  
+  noStroke(); //GRUPO 7 - EDUCACION
+  //ellipse(410, 400, research.getInt(6, 1)/10, research.getInt(6, 1)/10);
+  fill (30, 50, 120);
+  text(research.getString(6, 0), 374, 492 + (research.getInt(6, 1)/10)/2);
+
+pushMatrix();
+  translate(417, 410, 20);
+  fill (54, 202, 245);
+  stroke(230,232,229);
+  sphere(34);
+  popMatrix();
+  
+  noStroke(); //GRUPO 8 - AGRO
+  //ellipse(580, 400, research.getInt(7, 1)/10, research.getInt(7, 1)/10);
+  fill (30, 50, 120);
+  text(research.getString(7, 0), 560, 493 + (research.getInt(7, 1)/10)/2);
+
+pushMatrix();
+  translate(578, 415, 20);
+  fill (15, 183, 4);
+  stroke(230,232,229);
+  sphere(23);
+  popMatrix();
+  
+  noStroke(); //GRUPO 9 - BIO-TEC
+  //ellipse(720, 400, research.getInt(8, 1)/10, research.getInt(8, 1)/10);
+  fill (30, 50, 120);
+  text(research.getString(8, 0), 700, 504 + (research.getInt(8, 1)/10)/2);
+
+
+pushMatrix();
+  translate(723, 415, 20);
+  fill (255, 142, 255);
+  stroke(230,232,229);
+  sphere(18);
+  popMatrix();
+  
+  
+  noStroke(); //GRUPO 10 - ENERGIA
+  //ellipse(850, 400, research.getInt(9, 1)/5, research.getInt(9, 1)/5);
+  fill (30, 50, 120);
+  text(research.getString(9, 0), 835, 500 + (research.getInt(9, 1)/5)/2);
+
+pushMatrix();
+  translate(850, 420, 20);
+  fill (255, 116, 23);
+  stroke(230,232,229);
+  sphere(16);
+  popMatrix();
+  
+  
+  // TERCERA LINEA DE GRUPOS
+  // valores de x para los ellipses for fila
+  //170, 370, 540, 680, 810
+
+
+  noStroke(); //GRUPO 11 - NO CLASIFICADO
+  //ellipse(210, 580, research.getInt(10, 1)/5, research.getInt(10, 1)/5);
+  fill (30, 50, 120);
+  text(research.getString(10, 0), 162, 655 + (research.getInt(10, 1)/5)/2);
+
+pushMatrix();
+  translate(225, 575, 20);
+  fill (118,100, 73);
+  stroke(230,232,229);
+  sphere(12);
+  popMatrix();
+  
+  noStroke(); //GRUPO 12 - MARITIMO
+  //ellipse(410, 580, research.getInt(11, 1)/5, research.getInt(11, 1)/5);
+  fill (30, 50, 120);
+  text(research.getString(11, 0), 375, 656 + (research.getInt(11, 1)/5)/2);
+
+pushMatrix();
+  translate(410, 577, 20);
+  fill (31, 62, 255);
+  stroke(230,232,229);
+  sphere(8);
+  popMatrix();
+  
+  noStroke(); //GRUPO 13 - FORMACION
+  //ellipse(570, 580, research.getInt(12, 1)/2, research.getInt(12, 1)/2);
+  fill (30, 50, 120);
+  text(research.getString(12, 0), 546, 659 + (research.getInt(12, 1)/2)/2);
+
+pushMatrix();
+  translate(585, 580, 20);
+  fill (30, 200, 180);
+  stroke(230,232,229);
+  sphere(4);
+  popMatrix();
+  
+  noStroke(); //GRUPO 14 - SEGURIDAD
+  //ellipse(720, 580, research.getInt(13, 1)/2, research.getInt(13, 1)/2);
+  fill (30, 50, 120);
+  text(research.getString(13, 0), 688, 660 + (research.getInt(13, 1)/2)/2);
+  
+  pushMatrix();
+  translate(719, 580, 20);
+  fill (18, 255, 31);
+  stroke(230,232,229);
+  sphere(2);
+  popMatrix();
+  
+}
+
+//println(crisis.getInt(1,2));
